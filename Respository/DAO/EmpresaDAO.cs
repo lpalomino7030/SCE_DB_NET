@@ -12,7 +12,7 @@ namespace SCE_DB_NET.Respository.DAO
         {
             cadena = new ConfigurationBuilder().
                 AddJsonFile("appsettings.json").
-                Build().GetConnectionString("Defaulconnection");
+                Build().GetConnectionString("DefaultConnection");
         }
 
         public IEnumerable<Empresa> listar()
@@ -22,7 +22,7 @@ namespace SCE_DB_NET.Respository.DAO
             using (SqlConnection cn = new SqlConnection(cadena))
             {
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("exec usp_listaEmpresa");
+                SqlCommand cmd = new SqlCommand("exec usp_listaEmpresa", cn);
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SCE_DB_NET.Models;
 
 namespace SCE_DB_NET.Data
 {
@@ -7,6 +8,17 @@ namespace SCE_DB_NET.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
     : base(options)
         {
+        }
+
+        public virtual DbSet<Empresa> Empresas { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Configuración explícita de claves, relaciones, etc.
+            modelBuilder.Entity<Empresa>()
+                .HasKey(e => e.IdEmpresa);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
