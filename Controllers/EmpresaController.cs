@@ -20,7 +20,7 @@ namespace SCE_DB_NET.Controllers
 
 
         // GET: api/<EmpresaSceController>
-        [HttpGet("getEmpresa")]
+        [HttpGet]
         public IActionResult GetEmpresa()
         {
          var lista = iempresa.listar();
