@@ -10,20 +10,8 @@ namespace SCE_DB_NET.Controllers
     [Authorize]
     public class EmpresasClienteController : ControllerBase
     {
-        private readonly ApplicationDbContext _db;
 
-        private EmpresasClienteController(ApplicationDbContext db)
-        {
-            _db = db;
-        }
 
-        [HttpGet]
-        public IActionResult Listar()
-        {
-            return Ok(_db.EmpresaClientes.ListarCliente());
-        //requiere añadir la funcion para listar 
-        // se debe crear la interfaz y repositorio
-        
-        }
+
     }
 }

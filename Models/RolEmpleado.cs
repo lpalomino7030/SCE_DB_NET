@@ -4,7 +4,7 @@
     {
         public int IdRol { get; set; }
         public string NombreRol { get; set; } = string.Empty;
-        public ICollection<Usuarios> Usuarios { get; set; }
+        public required ICollection<Usuarios> Usuarios { get; set; }
     }
 
 }
